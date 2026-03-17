@@ -8,7 +8,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///comunidade.db"
 app.config["SECRET_KEY"] = "d729f438e5614ca27c4778d9ba62cc77"
 
 database = SQLAlchemy(app)
-Bcrypt = Bcrypt(app)
+bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "homepage"
 
