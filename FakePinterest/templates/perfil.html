@@ -6,9 +6,30 @@ Perfil de {{ username }}
 
 {% block body %}
 <body> 
-    <h1>Perfil do usuário: {{ username }}</h1>
 
-    <a href="{{ url_for('logout') }}"> Sair </a>
+<h1>Perfil do usuário: {{ username.username }}</h1>
+
+{% if form %}
+    <form method="POST" enctype="multipart/form-data">
+        {{form.csrf_token}}
+
+        {{ form.foto() }}
+        {{ form.botao_confirmacao() }}
+
+        <input type="submit" value="Enviar Foto">
+    </form>
+{% endif %}
+
+
+<a href="{{ url_for('logout') }}"> Sair </a>
+
+
+{% for foto in username.fotos %}
+
+<img src="{{ url_for('static', filename='fotos_post/{}'.format(foto.imagem))}}">
+
+
+{% endfor %}
 
 </body>
 {% endblock %}
