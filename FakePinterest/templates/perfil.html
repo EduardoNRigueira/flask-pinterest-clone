@@ -7,6 +7,8 @@ Perfil de {{ username }}
 {% block body %}
 <body> 
 
+{% include "navbar.html" %}
+
 <h1>Perfil do usuário: {{ username.username }}</h1>
 
 {% if form %}
